@@ -58,4 +58,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    //リレーションの定義
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }
