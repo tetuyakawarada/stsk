@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+
+    public function events()
+    {
+        return $this->hasOne(Event::class);
+    }
 }
