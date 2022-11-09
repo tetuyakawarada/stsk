@@ -15,6 +15,11 @@ class Task extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function event()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function state()
     {
         return $this->belongsTo(State::class);

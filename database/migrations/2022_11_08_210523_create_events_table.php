@@ -22,8 +22,8 @@ class CreateEventsTable extends Migration
                 ->cascadeOnDelete();
 
             $table->string('event_name');
-            $table->string('start_date');
-            $table->string('end_date');
+            $table->date('start_date');
+            $table->date('end_date');
 
             $table->timestamps();
         });

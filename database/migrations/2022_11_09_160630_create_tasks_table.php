@@ -23,6 +23,11 @@ class CreateTasksTable extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
+            // イベント
+            $table->foreignId('event_id')
+                ->constrained('events')
+                ->cascadeOnUpdate('events');
+
             // 教科
             $table->foreignId('subject_id')
                 ->constrained('subjects')

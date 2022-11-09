@@ -14,4 +14,10 @@ class Event extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    //リレーションの定義
+    public function task()
+    {
+        return $this->hasMany(User::class);
+    }
 }
