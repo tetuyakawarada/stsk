@@ -9,6 +9,17 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'title',
+        'body',
+        'event_id',
+        'subject_id',
+        'total_page',
+        'page_time',
+    ];
+
+
     //リレーションの定義
     public function user()
     {
