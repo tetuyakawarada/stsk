@@ -2,7 +2,7 @@
     <div class="shadow bg-white border rounded w-full max-w-md mx-auto mt-10">
         <h1 class="text-3xl text-center font-semibold p-6">課題の新規登録</h1>
 
-        {{-- <x-validation-errors :errors="$errors" /> --}}
+        <x-validation-errors :errors="$errors" />
 
         <form action="{{ route('tasks.store') }}" method="POST" class="relative px-6 pb-6 flex-auto">
 

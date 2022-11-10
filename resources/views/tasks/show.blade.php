@@ -2,7 +2,7 @@
     <div class="shadow bg-white border rounded w-full max-w-md mx-auto mt-10">
         <h1 class="text-3xl text-center font-semibold p-6">{{ __('課題詳細') }}</h1>
 
-        {{-- <x-flash-message :message="session('notice')" /> --}}
+        <x-flash-message :message="session('notice')" />
 
         <div class="px-6 pb-6">
 
@@ -48,7 +48,7 @@
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-20 mr-2">
                     {{ __('Go back') }}
                 </a>
-                <a href=""
+                <a href="{{ route('tasks.edit', $task) }}"
                     class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-20 mr-2">
                     {{ __('Edit') }}
                 </a>

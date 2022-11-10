@@ -53,6 +53,7 @@
                                 {{ __('進捗を登録') }}
                             </a>
                         </td>
+
                     </tr>
                 @endforeach
             </tbody>

@@ -18,6 +18,7 @@ class Event extends Model
     //リレーションの定義
     public function task()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 }
+

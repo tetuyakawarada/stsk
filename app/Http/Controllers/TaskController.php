@@ -45,10 +45,8 @@ class TaskController extends Controller
     public function store(StoreTaskRequest $request)
     {
         $task = new Task($request->all());
-        // dd($task);
 
         $task->user_id = $request->user()->id;
-
 
         // 登録
         $task->save();
@@ -77,7 +75,10 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        return view('tasks.edit')->with(compact('task'));
+        $subjects = Subject::all();
+        $events = Event::all();
+
+        return view('tasks.edit')->with(compact('task', 'subjects', 'events'));
     }
 
     /**
@@ -89,7 +90,17 @@ class TaskController extends Controller
      */
     public function update(UpdateTaskRequest $request, Task $task)
     {
-        //
+        $task->fill($request->all());
+
+
+
+        $task->save();
+
+        // dd($task);
+
+        return redirect()
+            ->route('tasks.index', $task)
+            ->with('notice', 'イベントを更新しました');
     }
 
     /**
@@ -100,6 +111,10 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+
+        return redirect()
+            ->route('tasks.index')
+            ->with('notice', 'イベントを更新しました');
     }
 }

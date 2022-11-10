@@ -24,7 +24,10 @@ class StoreTaskRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|string|max:50',
+            'body' => 'required|string|max:2000',
+            // 要確認
+
         ];
     }
 }
