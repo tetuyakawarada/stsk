@@ -92,11 +92,7 @@ class TaskController extends Controller
     {
         $task->fill($request->all());
 
-
-
         $task->save();
-
-        // dd($task);
 
         return redirect()
             ->route('tasks.index', $task)
@@ -115,6 +111,28 @@ class TaskController extends Controller
 
         return redirect()
             ->route('tasks.index')
+            ->with('notice', 'イベントを更新しました');
+    }
+
+
+
+    public function progress_edit(Task $task)
+    {
+        $subjects = Subject::all();
+        $events = Event::all();
+
+        return view('tasks.progress_edit')->with(compact('task', 'subjects', 'events'));
+    }
+
+
+    public function progress_update(Task $task)
+    {
+        // $task->fill($request->all());
+
+        $task->save();
+
+        return redirect()
+            ->route('tasks.index', $task)
             ->with('notice', 'イベントを更新しました');
     }
 }

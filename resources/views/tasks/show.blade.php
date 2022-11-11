@@ -10,7 +10,7 @@
             <div>{{ $task->title }}</div>
             <div>{{ $task->body }}</div>
             <div>予定所要時間：{{ $task->total_page }}p × {{ $task->page_time }}分 =</div>
-            <div>進んだ時間　：{{ $task->total_page }}p × {{ $task->page_time }}分 =</div>
+            <div>進んだ時間　：{{ $task->fisish_page }}p × {{ $task->page_time }}分 =</div>
             <div>残りの時間　：{{ $task->total_page }}p × {{ $task->page_time }}分 =</div>
 
 

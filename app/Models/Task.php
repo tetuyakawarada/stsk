@@ -19,7 +19,6 @@ class Task extends Model
         'page_time',
     ];
 
-
     //リレーションの定義
     public function user()
     {
@@ -28,7 +27,7 @@ class Task extends Model
 
     public function event()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Event::class);
     }
 
     public function state()

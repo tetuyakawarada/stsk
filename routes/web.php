@@ -38,4 +38,7 @@ Route::middleware([
     Route::resource('tasks', TaskController::class);
 
     Route::resource('events', EventController::class);
+
+    Route::get('/tasks/progress/{task}/edit', [App\Http\Controllers\TaskController::class, 'progress_edit']);
+    Route::patch('/tasks/progress/{task}', [App\Http\Controllers\TaskController::class, 'progress_update']);
 });
