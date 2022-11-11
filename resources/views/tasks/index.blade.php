@@ -2,17 +2,22 @@
     <div class="mt-10">
         <h1 class="text-left text-lg">課題一覧</h1>
 
+        <div class="py-4 px-6"><a href="{{ route('events.create') }}"
+                class="inline-block bg-green-500 hover:bg-green-700 text-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-15">
+                新規イベントの登録
+            </a>
+        </div>
+
         <div class="py-4 px-6"><a href="{{ route('tasks.create') }}"
                 class="inline-block bg-green-500 hover:bg-green-700 text-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-15">
                 新規課題の登録
             </a>
         </div>
 
-
         <table class="w-full text-sm text-left text-gray-0 mt-3">
             <thead class="text-xs text-white uppercase bg-emerald-600">
                 <tr>
-                    {{-- <th scope="col" class="py-3 px-6">e-id</th> --}}
+                    <th scope="col" class="py-3 px-6">イベントid</th>
                     {{-- 要確認 --}}
                     <th scope="col" class="py-3 px-6">教科</th>
                     <th scope="col" class="py-3 px-6">課題名</th>
@@ -29,7 +34,8 @@
             <tbody>
                 @foreach ($tasks as $task)
                     <tr class="bg-emerald-100 border-b">
-                        {{-- <td class="py-4 px-6">{{ $task->event->event_name }}</td> --}}
+                        <td class="py-4 px-6">{{ $task->event->id }}</td>
+                        {{-- <td class="py-4 px-6">{{ $task->event->id }}</td> --}}
                         {{-- 要確認 --}}
                         <td class="py-4 px-6">{{ $task->subject->subject_text }}</td>
                         <td class="py-4 px-6">{{ $task->title }}</td>

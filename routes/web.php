@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\EventController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,11 @@ Route::get('/', [TaskController::class, 'index'])
     ->name('root')
     ->middleware('auth');
 
+Route::get('/welcome', function () {
+    return view('welcome');
+})->middleware('guest')
+    ->name('welcome');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -29,4 +36,6 @@ Route::middleware([
 
     // CRUD用
     Route::resource('tasks', TaskController::class);
+
+    Route::resource('events', EventController::class);
 });

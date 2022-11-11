@@ -9,6 +9,14 @@ class Event extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'event_id',
+        'event_name',
+        'start_date',
+        'end_date',
+    ];
+
     //リレーションの定義
     public function user()
     {
@@ -21,4 +29,3 @@ class Event extends Model
         return $this->belongsTo(User::class);
     }
 }
-

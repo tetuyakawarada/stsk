@@ -24,10 +24,12 @@ class UpdateTaskRequest extends FormRequest
     public function rules()
     {
         return [
+            'event_id' => 'required',
+            'subject_id' => 'required',
             'title' => 'required|string|max:50',
-            'body' => 'required|string|max:2000',
-            // 要確認
-
+            'body' => 'nullable|string|max:2000',
+            'total_page' => 'required|Integer',
+            'page_time' => 'required|Integer',
         ];
     }
 }

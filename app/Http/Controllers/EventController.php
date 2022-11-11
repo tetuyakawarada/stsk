@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
+use Illuminate\Support\Facades\Auth;
+
 
 class EventController extends Controller
 {
@@ -25,7 +27,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('events.create');
     }
 
     /**
@@ -36,7 +38,16 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
-        //
+        $event = new Event($request->all());
+
+        $event->user_id = $request->user()->id;
+
+        // 登録
+        $event->save();
+
+        return redirect()
+            ->route('tasks.index', $event)
+            ->with('notice', 'イベントを登録しました');
     }
 
     /**
