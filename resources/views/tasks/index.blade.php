@@ -1,11 +1,11 @@
 <x-app-layout>
     <div class="flex my-5">
         {{-- タイトル・イメージ --}}
-        <div class="text-center float-light w-[600px] h-[220px] container px-4 border border-gray-400 bg-gray-200">
-            <div class="mt-5">{{ Auth::user()->name }} さん</div>
 
-            <p>タイトル</p>
-            <p>イメージ</p>
+
+        <div class="relative text-center float-light w-[600px] h-[220px] container border border-gray-400 bg-gray-200">
+            <img class="absolute w-[600px] h-[220px]" src="/images/img_stady.jpg">
+            <div class="absolute text-4xl mt-5 ml-5 text-white font-bold">{{ Auth::user()->name }} さん</div>
         </div>
         {{-- イベント情報 --}}
         <div class="ml-4 ">
