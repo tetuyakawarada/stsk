@@ -30,8 +30,8 @@ class Event extends Model
         return $this->belongsTo(User::class);
     }
 
-    // public function start_diff()
-    // {
-    //     return (new Carbon($this->end_date))->diffForHumans();
-    // }
+    public function getEndDayAttribute()
+    {
+        return (new Carbon($this->end_date))->diffInDays();
+    }
 }

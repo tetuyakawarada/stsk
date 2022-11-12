@@ -69,7 +69,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        $event = Auth::user()->events->last();
+        $events = Event::all();
 
         return view('events.edit')->with(compact('event'));
     }
@@ -83,7 +83,13 @@ class EventController extends Controller
      */
     public function update(UpdateEventRequest $request, Event $event)
     {
-        //
+        $event->fill($request->all());
+
+        $event->save();
+
+        return redirect()
+            ->route('tasks.index')
+            ->with('notice', 'イベントを更新しました');
     }
 
     /**
