@@ -39,4 +39,19 @@ class Task extends Model
     {
         return $this->belongsTo(Subject::class);
     }
+
+    public function getTotalTimeAttribute()
+    {
+        return $this->total_page * $this->page_time;
+    }
+
+    public function getProgressTimeAttribute()
+    {
+        return $this->finish_page * $this->page_time;
+    }
+
+    public function getDegreeTimeAttribute()
+    {
+        return $this->finish_page / $this->total_page * 100;
+    }
 }

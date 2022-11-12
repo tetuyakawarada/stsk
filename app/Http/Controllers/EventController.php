@@ -69,7 +69,9 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        $event = Auth::user()->events->last();
+
+        return view('events.edit')->with(compact('event'));
     }
 
     /**
