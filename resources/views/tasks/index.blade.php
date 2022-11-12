@@ -1,40 +1,47 @@
 <x-app-layout>
     <div class="flex my-5">
         {{-- タイトル・イメージ --}}
-        <div class="text-center float-light w-[400px] h-[200px] container px-4 border border-gray-400 bg-gray-200">
+        <div class="text-center float-light w-[600px] h-[220px] container px-4 border border-gray-400 bg-gray-200">
+            <div class="mt-5">{{ Auth::user()->name }} さん</div>
+
             <p>タイトル</p>
             <p>イメージ</p>
         </div>
         {{-- イベント情報 --}}
-        <div
-            class="text-center float-light w-[400px] h-[200px] container ml-4 px-4 border border-amber-400 bg-amber-100">
-            <div class="mt-5">{{ Auth::user()->name }} さん</div>
-            <div>{{ $event->event_name }}</div>
-            <div>{{ $event->start_date }} から {{ $event->end_date }}</div>
-            <div class="flex justify-center items-center">
-                <div>残り </div>
-                <div class="text-6xl">{{ $event->end_day }}</div>
-                <div> day!!</div>
-            </div>
-            <div class="flex justify-center items-center">
-                <div class="px-3"><a href="{{ route('events.create') }}"
-                        class="inline-block bg-green-500 hover:bg-green-700 text-center text-white font-bold py-1 px-3 rounded focus:outline-none focus:shadow-outline w-15">
-                        新規登録
-                    </a>
+        <div class="ml-4 ">
+            <div class="bg-amber-500 text-center text-white w-[300px] h-[36px] py-2 font-bold rounded">イベント情報</div>
+            <div class="text-center float-light h-[184px] container border border-amber-500 bg-amber-100 rounded">
+                <div class="mt-5">{{ $event->event_name }}</div>
+                <div>{{ $event->start_date }} から {{ $event->end_date }}</div>
+                <div class="flex justify-center items-center">
+                    <div>残り </div>
+                    <div class="text-6xl">{{ $event->end_day }}</div>
+                    <div> day!!</div>
                 </div>
-                <div class=""><a href="/events/{{ $event->id }}/edit"
-                        class="inline-block bg-amber-500 hover:bg-amber-700 text-center text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline w-15">
-                        編集
-                    </a>
+                <div class="flex justify-center items-center">
+                    <div class="px-3"><a href="{{ route('events.create') }}"
+                            class="inline-block bg-green-500 hover:bg-green-700 text-center text-white font-bold py-1 px-3 rounded focus:outline-none focus:shadow-outline w-15">
+                            新規登録
+                        </a>
+                    </div>
+                    <div class=""><a href="/events/{{ $event->id }}/edit"
+                            class="inline-block bg-amber-500 hover:bg-amber-700 text-center text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline w-15">
+                            編集
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
         {{-- 進行状況 --}}
-        <div
-            class="text-center float-light w-[400px] h-[200px] container ml-4 px-4 border border-fuchsia-400 bg-fuchsia-100">
-            <div class="mt-5">進行状況</div>
-            <div class="mt-1">{{ intval($progress_time) }} 時間 / {{ intval($total_time) }} 時間</div>
-            <div class="mt-6 text-7xl">{{ intval($total_progress_degree) }} %</div>
+        <div class="ml-4 ">
+            <div class="bg-fuchsia-500 text-center text-white w-[300px] h-[36px] py-2 font-bold rounded">イベント情報</div>
+
+            <div
+                class="text-center float-light w-[300px] h-[184px] container px-4 border border-fuchsia-500 bg-fuchsia-100">
+                <div class="mt-5">進行状況</div>
+                <div class="mt-1">{{ intval($progress_time) }} 時間 / {{ intval($total_time) }} 時間</div>
+                <div class="mt-6 text-7xl">{{ intval($total_progress_degree) }} %</div>
+            </div>
         </div>
     </div>
 
