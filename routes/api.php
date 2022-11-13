@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\TaskController;
+use App\Http\Controllers\API\EventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('tasks', TaskController::class)
+    ->middleware('auth:api')
+    ->names('api.tasks');
+
+Route::resource('events', EventController::class)
+    ->middleware('auth:api')
+    ->names('api.events');
+
+Route::get('/api.tasks/progress/{task}/edit', [App\Http\Controllers\TaskController::class, 'progress_edit']);
+Route::patch('/api.tasks/progress/{task}', [App\Http\Controllers\TaskController::class, 'progress_update']);

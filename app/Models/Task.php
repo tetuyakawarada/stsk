@@ -16,8 +16,22 @@ class Task extends Model
         'event_id',
         'subject_id',
         'total_page',
+        'finish_page',
         'page_time',
     ];
+
+    protected $appends = [
+        'user_name',
+        'total_time',
+        'progress_time',
+        'degree_time',
+    ];
+
+    protected $hidden = [
+        'user',
+    ];
+
+
 
     //リレーションの定義
     public function user()
@@ -53,5 +67,12 @@ class Task extends Model
     public function getDegreeTimeAttribute()
     {
         return $this->finish_page / $this->total_page * 100;
+    }
+
+
+
+    public function getUserNameAttribute()
+    {
+        return $this->user->name;
     }
 }

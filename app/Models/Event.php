@@ -18,6 +18,14 @@ class Event extends Model
         'end_date',
     ];
 
+    protected $appends = [
+        'end_day',
+    ];
+
+    protected $hidden = [
+    ];
+
+
     //リレーションの定義
     public function user()
     {
