@@ -35,7 +35,7 @@ class EventController extends Controller
 
         $event->user_id = $request->user()->id;
 
-        // 登録
+        // 登録1
         $event->save();
 
         return redirect()
