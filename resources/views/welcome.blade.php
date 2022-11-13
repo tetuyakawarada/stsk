@@ -417,8 +417,8 @@
                     class="w-4/5 flex flex-auto flex-col md:flex-row items-center justify-center p-10 xl:p-32 overflow-hidden">
                     <div class="absolute bg-gradient-to-b from-indigo-900 to-black opacity-75 inset-0 z-0"></div>
                     <div class="w-4/5 z-10">
-                        <h2 class="text-xl xl:text-3xl italic mb-6">Job Match</h2>
-                        <div class="text-5xl sm:text-6xl xl:text-8xl font-bold leading-tight mb-6">楽しくなければ<br>仕事じゃない
+                        <h2 class="text-xl xl:text-3xl italic mb-6">tats</h2>
+                        <div class="text-5xl sm:text-6xl xl:text-8xl font-bold leading-tight mb-6">楽しくなければ<br>宿題じゃない
                         </div>
                         <div class="sm:text-sm xl:text-md text-gray-200 font-normal">Job
                             Matchは会社に不満を抱えている人と、楽しく働くことができる企業をマッチングするサービスです。</div>
