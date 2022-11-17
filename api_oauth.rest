@@ -1,6 +1,7 @@
 http://localhost/oauth/authorize?redirect_uri=http%3A%2F%2Flocalhost%0A&response_type=code&client_id=3
+http://stsk.herokuapp.com/oauth/authorize?redirect_uri=http%3A%2F%2Flocalhost%0A&response_type=code&client_id=3
 
-
+# @host = heroku
 
 ### Get Token
 POST /oauth/token HTTP/1.1
@@ -9,10 +10,10 @@ Content-Type: application/x-www-form-urlencoded
 
 # grant_type=client_credentials
 grant_type=authorization_code
-&client_id=3
-&client_secret=qouM7kknPiUp0QDmp3uxGhLmOgI139ec5zFVuiLA
-&code=def502008c8490b009129f444713ccad4c8cfdab1cf6a5ebe21f9bed7f7f3e5fe09bb80d0c38b781e7ca7041bb83e9d044f00edb55333ea4f933c9c3072edfc72cb95360ac71d244a533a51b49627151d815fd4123d1f0ca909d2580513fa0933287b804b5a347ff4640aa7dd20ebe3c3a5d5c1b20f956aa16c9ad00c7c3290c383f1c3a517a876f047d5908cf28d730c12e58129a66f6eff4016ad77ded0b8e1ee304d99c70c366d1623225d1459af637bbea0b10651942ed2d8a99e2f0994e7ffe51d017f81f97e3734046fd29f2b9922183b1b807d70b302453339056cbd4fd4531442cff1bdce7089c0cb4166ccefca35188d2897183a4b857f3ba5a6deb9149f3b998bbd1c131c4c901eacf7064c70051d2e23398638230dc94ee94faa33ebbd09bf6f68a327e7bbe118f78ec9b31c8e290f9a572f33da8bf3f485b77ab9476e7a0bc983088083777a3b423fd
-&redirect_uri=http://localhost
+&client_id=
+&client_secret=
+&code=
+&redirect_uri=
 
 ### user
 GET /api/user HTTP/1.1
