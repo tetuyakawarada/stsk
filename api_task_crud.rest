@@ -1,9 +1,10 @@
-@host = localhost
+# @host = heroku
 
 ### index
 GET /api/tasks HTTP/1.1
 Host: {{ host }}
 Accept: application/json
+Authorization: Bearer {{ token }}
 
 
 
@@ -12,6 +13,7 @@ Accept: application/json
 GET /api/tasks/{{ tasks_id }}?perPage=20&page=1 HTTP/1.1
 Host: {{ host }}
 Accept: application/json
+Authorization: Bearer {{ token }}
 
 
 

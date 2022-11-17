@@ -1,19 +1,20 @@
 http://localhost/oauth/authorize?redirect_uri=http%3A%2F%2Flocalhost%0A&response_type=code&client_id=3
 http://stsk.herokuapp.com/oauth/authorize?redirect_uri=http%3A%2F%2Flocalhost%0A&response_type=code&client_id=3
 
-# @host = heroku
+# @host = local
+# stsk-oauth://callback
 
 ### Get Token
+# @prompt code
 POST /oauth/token HTTP/1.1
 Host: {{ host }}
 Content-Type: application/x-www-form-urlencoded
 
-# grant_type=client_credentials
 grant_type=authorization_code
-&client_id=
-&client_secret=
-&code=
-&redirect_uri=
+&client_id={{ client_id }}
+&client_secret={{ client_secret }}
+&code={{ code }}
+&redirect_uri=http://localhost
 
 ### user
 GET /api/user HTTP/1.1

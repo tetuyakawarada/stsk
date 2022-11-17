@@ -22,6 +22,7 @@ class Task extends Model
 
     protected $appends = [
         'user_name',
+        'subject_name',
         'total_time',
         'progress_time',
         'degree_time',
@@ -74,5 +75,10 @@ class Task extends Model
     public function getUserNameAttribute()
     {
         return $this->user->name;
+    }
+
+    public function getSubjectNameAttribute()
+    {
+        return $this->subject->subject_text;
     }
 }
