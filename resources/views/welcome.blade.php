@@ -409,57 +409,57 @@
 
 <body class="antialiased">
 
-    <div class="relative min-h-screen flex ">
+    <div class="relative min-h-screen flex justify-center">
         <div
             class="flex flex-col sm:flex-row items-center md:items-start sm:justify-center md:justify-start flex-auto min-w-0 bg-white">
-            <div class="h-full flex flex-auto bg-purple-900 text-white bg-no-repeat bg-cover relative bg-image">
+            <div class="h-full flex flex-auto bg-amber-900 text-white bg-no-repeat bg-cover relative bg-image">
                 <div
                     class="w-4/5 flex flex-auto flex-col md:flex-row items-center justify-center p-10 xl:p-32 overflow-hidden">
                     <div class="absolute bg-gradient-to-b from-indigo-900 to-black opacity-75 inset-0 z-0"></div>
                     <div class="w-4/5 z-10">
-                        <h2 class="text-xl xl:text-3xl italic mb-6">tats</h2>
-                        <div class="text-5xl sm:text-6xl xl:text-8xl font-bold leading-tight mb-6">楽しくなければ<br>宿題じゃない
+                        {{-- <h2 class="text-xl xl:text-3xl italic mb-6">stsk</h2> --}}
+                        <div class="flex justify-center">
+                            <div class="text-5xl sm:text-6xl xl:text-8xl font-bold leading-tight mb-5">STSK!</div>
+                            <div class="text-5xl sm:text-6xl xl:text-8xl font-bold leading-tight mb-5"></div>
                         </div>
-                        <div class="sm:text-sm xl:text-md text-gray-200 font-normal">Job
-                            Matchは会社に不満を抱えている人と、楽しく働くことができる企業をマッチングするサービスです。</div>
-                    </div>
+                        <div class="text-center text-2xl font-normal">Study ✕ Task ✕ School</div>
 
-                    <div
-                        class="md:flex md:items-center md:justify-center w-full sm:w-auto md:h-full md:w-2/5 p-8 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none relative z-11">
-                        <div class="max-w-md w-full space-y-8">
 
-                            <div class="text-center text-white">
-                                <h3 class="mt-6 text-2xl font-bold mb-6">
-                                    登録済みの方はこちら
-                                </h3>
-                                <div>
-                                    <a href="{{ route('login') }}"
-                                        class="w-full flex justify-center bg-gradient-to-r from-indigo-500 to-blue-600 hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">Sign
-                                        in</a>
+                        <div class="md:w-2/5 p-8 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none relative z-11">
+                            <div class="max-w-md w-full space-y-8">
+
+                                <div class="text-center text-white">
+                                    <h3 class="mt-6 text-2xl font-bold mb-6">
+                                        登録済みの方はこちら
+                                    </h3>
+                                    <div>
+                                        <a href="{{ route('login') }}"
+                                            class="w-full flex justify-center bg-gradient-to-r from-indigo-500 to-blue-600 hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">Sign
+                                            in</a>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="flex items-center justify-center space-x-2">
-                                <span class="h-px w-full bg-gray-200"></span>
-                            </div>
-
-                            <div class="text-center text-white">
-                                <h3 class="mt-6 text-2xl font-bold mb-6">
-                                    新規登録はこちら
-                                </h3>
-                                <div>
-                                    <a href="{{ route('register') }}"
-                                        class="w-full flex justify-center bg-gradient-to-r from-pink-500 to-purple-600 hover:bg-gradient-to-l hover:from-purple-500 hover:to-pink-600 text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">Sign
-                                        up</a>
+                                <div class="flex items-center justify-center space-x-2">
+                                    <span class="h-px w-full bg-gray-200"></span>
                                 </div>
-                            </div>
 
+                                <div class="text-center text-white">
+                                    <h3 class="mt-6 text-2xl font-bold mb-6">
+                                        新規登録はこちら
+                                    </h3>
+                                    <div>
+                                        <a href="{{ route('register') }}"
+                                            class="w-full flex justify-center bg-gradient-to-r from-pink-500 to-purple-600 hover:bg-gradient-to-l hover:from-purple-500 hover:to-pink-600 text-gray-100 p-4 rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500">Sign
+                                            up</a>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 </body>
 

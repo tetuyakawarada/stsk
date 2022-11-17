@@ -22,8 +22,7 @@ class Event extends Model
         'end_day',
     ];
 
-    protected $hidden = [
-    ];
+    protected $hidden = [];
 
 
     //リレーションの定義
@@ -40,6 +39,6 @@ class Event extends Model
 
     public function getEndDayAttribute()
     {
-        return (new Carbon($this->end_date))->diffInDays();
+        return (new Carbon($this->end_date))->diffInDays() + 2;
     }
 }

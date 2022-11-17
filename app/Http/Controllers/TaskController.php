@@ -68,7 +68,7 @@ class TaskController extends Controller
         $task->save();
 
         return redirect()
-            ->route('tasks.index', $task)
+            ->route('tasks.index')
             ->with('notice', 'イベントを登録しました');
     }
 
