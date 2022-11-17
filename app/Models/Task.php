@@ -30,6 +30,7 @@ class Task extends Model
 
     protected $hidden = [
         'user',
+        'subject',
     ];
 
 
