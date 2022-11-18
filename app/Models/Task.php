@@ -68,7 +68,8 @@ class Task extends Model
 
     public function getDegreeTimeAttribute()
     {
-        return $this->finish_page / $this->total_page * 100;
+        // return $this->finish_page / $this->total_page * 100;
+        return floor($this->finish_page / $this->total_page * 100);
     }
 
 

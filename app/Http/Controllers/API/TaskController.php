@@ -34,14 +34,14 @@ class TaskController extends Controller
             $progress_time += $task->finish_page * $task->page_time / 60;
         }
 
-        if ($progress_time!=0){
+        if ($progress_time != 0) {
             $total_progress_degree = $progress_time * 100 / $total_time;
         }
 
         $event = Auth::user()->events->last();
 
         // return view('tasks.index')->with(compact('tasks', 'event', 'total_time', 'progress_time', 'total_progress_degree'));
-        return response()->json(["data"=>$tasks]);
+        return response()->json(["data" => $tasks]);
     }
 
     /**

@@ -40,7 +40,7 @@
                 class="text-center float-light w-[300px] h-[184px] container px-4 border-2 border-fuchsia-500 bg-fuchsia-100">
                 <div class="mt-1">{{ intval($progress_time) }} 時間 / {{ intval($total_time) }} 時間</div>
                 <div class="flex justify-center items-center text-bottom">
-                    <div class="mt-6 text-9xl font-bold text-fuchsia-500">{{ intval($total_progress_degree) }}</div>
+                    <div class="mt-6 text-8xl font-bold text-fuchsia-500">{{ intval($total_progress_degree) }}</div>
                     <div class="mt-6 text-6xl font-bold text-fuchsia-500">%</div>
                 </div>
 
@@ -81,7 +81,8 @@
                         <td class="py-2 px-6">{{ $task->title }}</td>
                         <td class="py-2 px-6">{{ $task->total_time }} 分</td>
                         <td class="py-2 px-6">{{ $task->progress_time }} 分</td>
-                        <td class="py-2 px-6">{{ intval($task->degree_time) }} %</td>
+                        {{-- <td class="py-2 px-6">{{ intval($task->degree_time) }} %</td> --}}
+                        <td class="py-2 px-6">{{ $task->degree_time }} %</td>
                         <td class="py-2 px-6">{{ $task->state->state_text }}</td>
                         <td class="py-2 px-6">
                             <a href="{{ route('tasks.show', $task) }}"
