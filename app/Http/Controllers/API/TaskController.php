@@ -41,7 +41,7 @@ class TaskController extends Controller
         $event = Auth::user()->events->last();
 
         // return view('tasks.index')->with(compact('tasks', 'event', 'total_time', 'progress_time', 'total_progress_degree'));
-        return response()->json($tasks);
+        return response()->json(["data"=>$tasks]);
     }
 
     /**

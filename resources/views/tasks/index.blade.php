@@ -34,13 +34,16 @@
         </div>
         {{-- 進行状況 --}}
         <div class="ml-4 ">
-            <div class="bg-fuchsia-500 text-center text-white w-[300px] h-[36px] py-2 font-bold rounded">イベント情報</div>
+            <div class="bg-fuchsia-500 text-center text-white w-[300px] h-[36px] py-2 font-bold">進行状況</div>
 
             <div
-                class="text-center float-light w-[300px] h-[184px] container px-4 border-2 border-fuchsia-500 bg-fuchsia-100 rounded">
-                <div class="mt-5">進行状況</div>
+                class="text-center float-light w-[300px] h-[184px] container px-4 border-2 border-fuchsia-500 bg-fuchsia-100">
                 <div class="mt-1">{{ intval($progress_time) }} 時間 / {{ intval($total_time) }} 時間</div>
-                <div class="mt-6 text-7xl">{{ intval($total_progress_degree) }} %</div>
+                <div class="flex justify-center items-center text-bottom">
+                    <div class="mt-6 text-9xl font-bold text-fuchsia-500">{{ intval($total_progress_degree) }}</div>
+                    <div class="mt-6 text-6xl font-bold text-fuchsia-500">%</div>
+                </div>
+
             </div>
         </div>
     </div>
