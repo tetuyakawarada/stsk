@@ -85,9 +85,12 @@ class TaskController extends Controller
      */
     public function update(ApiUpdateTaskRequest $request, Task $task)
     {
+        logger($request);
         $task->fill($request->all());
+        logger($task);
 
         $task->save();
+        logger($task);
 
         return response()->json($task, 200);
     }

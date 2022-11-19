@@ -66,6 +66,14 @@ class Task extends Model
         return $this->finish_page * $this->page_time;
     }
 
+
+
+    public function getRemainingTimeAttribute()
+    {
+        return $this->total_time - $this->progress_time;
+    }
+
+
     public function getDegreeTimeAttribute()
     {
         // return $this->finish_page / $this->total_page * 100;
