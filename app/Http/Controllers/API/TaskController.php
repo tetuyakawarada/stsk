@@ -89,9 +89,7 @@ class TaskController extends Controller
 
         $task->save();
 
-        return redirect()
-            ->route('tasks.index')
-            ->with('notice', 'イベントを更新しました');
+        return response()->json($task, 200);
     }
 
     /**
