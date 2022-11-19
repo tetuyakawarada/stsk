@@ -7,7 +7,7 @@ use App\Models\Task;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\StoreTaskRequest;
-use App\Http\Requests\UpdateTaskRequest;
+use App\Http\Requests\ApiUpdateTaskRequest;
 use App\Models\Subject;
 use App\Models\State;
 use App\Models\Event;
@@ -83,7 +83,7 @@ class TaskController extends Controller
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTaskRequest $request, Task $task)
+    public function update(ApiUpdateTaskRequest $request, Task $task)
     {
         $task->fill($request->all());
 

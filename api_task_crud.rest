@@ -42,10 +42,10 @@ Content-Disposition: form-data; name="image"; filename="file.jpg"
 
 
 ### update
-# @prompt file
-POST /api/posts/1 HTTP/1.1
+POST /api/tasks/1 HTTP/1.1
 Host: {{ host }}
 Accept: application/json
+Authorization: Bearer {{ token }}
 Content-Type: multipart/form-data; boundary=----updateForm
 # boundatyは送信するデータの目印
 
@@ -54,17 +54,9 @@ Content-Disposition: form-data; name="_method"
 
 PATCH
 ------updateForm
-Content-Disposition: form-data; name="title"
+Content-Disposition: form-data; name="finish_page"
 
-Test タイトル
-------updateForm
-Content-Disposition: form-data; name="body"
-
-Test 本文
-------updateForm
-Content-Disposition: form-data; name="image"; filename="file.jpg"
-
-< {{ file }}
+12
 ------updateForm--
 
 
