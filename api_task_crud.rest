@@ -10,7 +10,7 @@ Authorization: Bearer {{ token }}
 
 ### show
 # @prompt task_id
-GET /api/tasks/{{ tasks_id }}?perPage=20&page=1 HTTP/1.1
+GET /api/tasks/{{ task_id }}?perPage=20&page=1 HTTP/1.1
 Host: {{ host }}
 Accept: application/json
 Authorization: Bearer {{ token }}

@@ -72,7 +72,8 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        return response()->json(compact('task'));
+        // return response()->json(compact('task'));
+        return response()->json(["data" => $task]);
     }
 
     /**

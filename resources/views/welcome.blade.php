@@ -425,7 +425,7 @@
                         <div class="text-center text-2xl font-normal">Study ✕ Task ✕ School</div>
 
 
-                        <div class="md:w-2/5 p-8 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none relative z-11">
+                        <div class="md:w-2/5  md:p-10 lg:p-14 sm:rounded-lg md:rounded-lg relative z-11">
                             <div class="max-w-md w-full space-y-8">
 
                                 <div class="text-center text-white">
