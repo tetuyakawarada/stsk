@@ -66,6 +66,10 @@ class Task extends Model
         return $this->finish_page * $this->page_time;
     }
 
+    public function getRemainingPageAttribute()
+    {
+        return $this->total_page - $this->finish_page;
+    }
 
 
     public function getRemainingTimeAttribute()

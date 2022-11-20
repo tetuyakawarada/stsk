@@ -11,7 +11,7 @@
             <div class="mt-3">予定所要時間：{{ $task->total_page }}p × {{ $task->page_time }}分 = {{ $task->total_time }}分
             </div>
             <div>進んだ時間　：{{ $task->finish_page }}p × {{ $task->page_time }}分 = {{ $task->progress_time }}分</div>
-            <div>残りの時間　：{{ $task->total_page }}p × {{ $task->page_time }}分 = {{ $task->remaining_time }}分</div>
+            <div>残りの時間　：{{ $task->remaining_page }}p × {{ $task->page_time }}分 = {{ $task->remaining_time }}分</div>
 
             <div class="flex flex-row text-center my-4">
                 <a href="javascript:history.back()"

@@ -9,8 +9,8 @@
         </div>
         {{-- イベント情報 --}}
         <div class="ml-4 ">
-            <div class="bg-amber-500 text-center text-white w-[300px] h-[36px] py-2 font-bold rounded">イベント情報</div>
-            <div class="text-center float-light h-[184px] container border-2 border-amber-500 bg-amber-100 rounded">
+            <div class="bg-amber-500 text-center text-white w-[300px] h-[36px] py-2 font-bold">イベント情報</div>
+            <div class="text-center float-light h-[184px] container border-2 border-amber-500 bg-amber-100">
                 <div class="mt-5">{{ $event->event_name }}</div>
                 <div>{{ $event->start_date }} から {{ $event->end_date }}</div>
                 <div class="flex justify-center items-center">
@@ -38,9 +38,10 @@
 
             <div
                 class="text-center float-light w-[300px] h-[184px] container px-4 border-2 border-fuchsia-500 bg-fuchsia-100">
-                <div class="mt-1">{{ intval($progress_time) }} 時間 / {{ intval($total_time) }} 時間</div>
+                <div class="mt-5 text-2xl font-bold text-fuchsia-500">{{ intval($progress_time) }} 時間 /
+                    {{ intval($total_time) }} 時間</div>
                 <div class="flex justify-center items-center text-bottom">
-                    <div class="mt-6 text-8xl font-bold text-fuchsia-500">{{ intval($total_progress_degree) }}</div>
+                    <div class="mt-4 text-8xl font-bold text-fuchsia-500">{{ intval($total_progress_degree) }}</div>
                     <div class="mt-6 text-6xl font-bold text-fuchsia-500">%</div>
                 </div>
 
