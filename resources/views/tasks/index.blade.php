@@ -49,7 +49,7 @@
         </div>
     </div>
 
-    {{-- 課題一覧 --}}
+    {{-- 課題 一覧 --}}
     <div class="mt-0">
         <div class="flex">
             <h1 class="py-3 px-3 text-left text-lg">課題一覧</h1>
