@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
+
+use App\Http\Controllers\Controller;
+use App\Models\Task;
+use Illuminate\Http\Request;
 
 use App\Http\Requests\StoreTaskRequest;
-use App\Http\Requests\UpdateTaskRequest;
-use Illuminate\Http\Request;
-use App\Models\Task;
+use App\Http\Requests\ApiUpdateTaskRequest;
 use App\Models\Subject;
 use App\Models\State;
 use App\Models\Event;
 use Illuminate\Support\Facades\Auth;
-use League\CommonMark\Extension\TaskList\TaskListExtension;
+
 
 class TaskController extends Controller
 {
@@ -22,7 +24,7 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Auth::user()->tasks;
-
+        logger($tasks);
         $total_time = 0;
         $progress_time = 0;
 
@@ -32,30 +34,20 @@ class TaskController extends Controller
             $progress_time += $task->finish_page * $task->page_time / 60;
         }
 
-        $total_progress_degree = $progress_time * 100 / $total_time;
+        if ($progress_time != 0) {
+            $total_progress_degree = $progress_time * 100 / $total_time;
+        }
 
         $event = Auth::user()->events->last();
 
-        return view('tasks.index')->with(compact('tasks', 'event', 'total_time', 'progress_time', 'total_progress_degree'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $subjects = Subject::all();
-        $events = Event::all();
-
-        return view('tasks.create')->with(compact('subjects', 'events'));
+        // return view('tasks.index')->with(compact('tasks', 'event', 'total_time', 'progress_time', 'total_progress_degree'));
+        return response()->json(["data" => $tasks]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreTaskRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreTaskRequest $request)
@@ -68,7 +60,7 @@ class TaskController extends Controller
         $task->save();
 
         return redirect()
-            ->route('tasks.index')
+            ->route('tasks.index', $task)
             ->with('notice', 'イベントを登録しました');
     }
 
@@ -80,39 +72,27 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        return view('tasks.show')->with(compact('task'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Task $task)
-    {
-        $subjects = Subject::all();
-        $events = Event::all();
-
-        return view('tasks.edit')->with(compact('task', 'subjects', 'events'));
+        // return response()->json(compact('task'));
+        return response()->json($task);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateTaskRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTaskRequest $request, Task $task)
+    public function update(ApiUpdateTaskRequest $request, Task $task)
     {
+        logger($request);
         $task->fill($request->all());
+        logger($task);
 
         $task->save();
+        logger($task);
 
-        return redirect()
-            ->route('tasks.index')
-            ->with('notice', 'イベントを更新しました');
+        return response()->json($task, 200);
     }
 
     /**
@@ -157,7 +137,7 @@ class TaskController extends Controller
         $task->save();
 
         return redirect()
-            ->route('tasks.index')
+            ->route('tasks.index', $task)
             ->with('notice', 'イベントを更新しました');
     }
 }

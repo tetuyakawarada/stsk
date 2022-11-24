@@ -18,6 +18,13 @@ class Event extends Model
         'end_date',
     ];
 
+    protected $appends = [
+        'end_day',
+    ];
+
+    protected $hidden = [];
+
+
     //リレーションの定義
     public function user()
     {
@@ -32,6 +39,6 @@ class Event extends Model
 
     public function getEndDayAttribute()
     {
-        return (new Carbon($this->end_date))->diffInDays();
+        return (new Carbon($this->end_date))->diffInDays() + 2;
     }
 }

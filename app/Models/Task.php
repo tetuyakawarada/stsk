@@ -16,8 +16,24 @@ class Task extends Model
         'event_id',
         'subject_id',
         'total_page',
+        'finish_page',
         'page_time',
     ];
+
+    protected $appends = [
+        'user_name',
+        'subject_name',
+        'total_time',
+        'progress_time',
+        'degree_time',
+    ];
+
+    protected $hidden = [
+        'user',
+        'subject',
+    ];
+
+
 
     //リレーションの定義
     public function user()
@@ -50,8 +66,33 @@ class Task extends Model
         return $this->finish_page * $this->page_time;
     }
 
+    public function getRemainingPageAttribute()
+    {
+        return $this->total_page - $this->finish_page;
+    }
+
+
+    public function getRemainingTimeAttribute()
+    {
+        return $this->total_time - $this->progress_time;
+    }
+
+
     public function getDegreeTimeAttribute()
     {
-        return $this->finish_page / $this->total_page * 100;
+        // return $this->finish_page / $this->total_page * 100;
+        return floor($this->finish_page / $this->total_page * 100);
+    }
+
+
+
+    public function getUserNameAttribute()
+    {
+        return $this->user->name;
+    }
+
+    public function getSubjectNameAttribute()
+    {
+        return $this->subject->subject_text;
     }
 }

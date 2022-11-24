@@ -1,0 +1,68 @@
+# @host = heroku
+
+### index
+GET /api/tasks HTTP/1.1
+Host: {{ host }}
+Accept: application/json
+Authorization: Bearer {{ token }}
+
+
+
+### show
+# @prompt task_id
+GET /api/tasks/{{ task_id }}?perPage=20&page=1 HTTP/1.1
+Host: {{ host }}
+Accept: application/json
+Authorization: Bearer {{ token }}
+
+
+
+### store
+# @prompt file
+POST /api/posts HTTP/1.1
+Host: {{ host }}
+Accept: application/json
+Content-Type: multipart/form-data; boundary=----storeForm
+# boundatyは送信するデータの目印
+
+------storeForm
+Content-Disposition: form-data; name="title"
+
+Test タイトル
+------storeForm
+Content-Disposition: form-data; name="body"
+
+Test 本文
+------storeForm
+Content-Disposition: form-data; name="image"; filename="file.jpg"
+
+< {{ file }}
+------storeForm--
+
+
+
+### update
+POST /api/tasks/1 HTTP/1.1
+Host: {{ host }}
+Accept: application/json
+Authorization: Bearer {{ token }}
+Content-Type: multipart/form-data; boundary=----updateForm
+# boundatyは送信するデータの目印
+
+------updateForm
+Content-Disposition: form-data; name="_method"
+
+PATCH
+------updateForm
+Content-Disposition: form-data; name="finish_page"
+
+80
+------updateForm--
+
+
+
+### destroy
+# @prompt post_id
+DELETE /api/posts/{{ post_id }} HTTP/1.1
+Host: {{ host }}
+Accept: application/json

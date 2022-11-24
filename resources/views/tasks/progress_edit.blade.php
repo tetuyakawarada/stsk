@@ -14,9 +14,9 @@
             <div>{{ $task->title }}</div>
             <div>{{ $task->body }}</div>
             <br>
-            <div>予定所要時間：{{ $task->total_page }}p × {{ $task->page_time }}分 =</div>
-            <div>進んだ時間　：{{ $task->finish_page }}p × {{ $task->page_time }}分 =</div>
-            <div>残りの時間　：{{ $task->total_page }}p × {{ $task->page_time }}分 =</div>
+            <div>予定所要時間：{{ $task->total_page }}p × {{ $task->page_time }}分 = {{ $task->total_time }}分</div>
+            <div>進んだ時間　：{{ $task->finish_page }}p × {{ $task->page_time }}分 = {{ $task->progress_time }}分</div>
+            <div>残りの時間　：{{ $task->remaining_page }}p × {{ $task->page_time }}分 = {{ $task->remaining_time }}分</div>
             <div>
                 <label class="block text-gray-700 text-sm font-bold mt-5 mb-2" for="body">
                     進んだページ数を登録
