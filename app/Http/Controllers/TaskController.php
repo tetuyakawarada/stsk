@@ -47,7 +47,9 @@ class TaskController extends Controller
     public function create()
     {
         $subjects = Subject::all();
-        $events = Event::all();
+        // $events = Event::all();
+        $events = Auth::user()->events;
+
 
         return view('tasks.create')->with(compact('subjects', 'events'));
     }

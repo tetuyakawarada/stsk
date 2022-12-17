@@ -1,0 +1,228 @@
+html,
+body,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div {
+    margin: 0;
+    padding: 0;
+}
+
+.xxx {
+    border: 2px solid black;
+    margin: 50px 0;
+}
+
+.contener {
+    margin: 0 20px;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    margin-top: 0px;
+    background-color: rgba(5, 150, 153, 0.8);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+
+}
+
+.header-logo {
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: bold;
+    color: rgb(208, 255, 0);
+    float: left;
+    margin-right: 10px;
+}
+
+.header-logo-text {
+    font-size: 20px;
+    line-height: 50px;
+    font-weight: bold;
+    padding-top: 5px;
+    color: white;
+    float: left;
+}
+
+.header-right {
+    float: right;
+    line-height: 50px;
+    opacity: 0.6;
+}
+
+
+
+
+
+
+
+
+
+
+
+.top {
+    height: 300px;
+    background-image: url(/images/img_stady.jpg);
+    background-size: cover;
+    /* opacity: 0.5; */
+    position: relative;
+
+}
+
+.user-info {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    padding: 0px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.user-info span {
+    font-size: 20px;
+}
+
+.top-info {
+    /* margin-top: 70px; */
+    margin-right: 20px;
+    float: left;
+    width: 300px;
+    height: 180px;
+    text-align: center;
+}
+
+.top-info-title {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 30px;
+    background-color: grey;
+}
+
+.event-info-title {
+    background-color: rgba(236, 169, 13, 0.7);
+    margin-bottom: 8px;
+}
+
+.event-info {
+    background-color: rgba(255, 228, 196, 0.7);
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    border: 2px solid rgba(236, 169, 13, 0.7);
+}
+
+.progress-info-title {
+    background-color: rgba(221, 74, 216, 0.7);
+}
+
+.progress-info {
+    background-color: rgba(232, 164, 236, 0.7);
+    position: absolute;
+    top: 100px;
+    left: 340px;
+    border: 2px solid rgba(221, 74, 216, 0.7);
+}
+
+.event-info-text {
+    font-size: 16px;
+}
+
+.event-info-text span {
+    font-size: 50px;
+    line-height: 100%;
+}
+
+.btn {
+    display: inline-block;
+    color: white;
+    font-size: 16px;
+    line-height: 100%;
+    font-weight: bold;
+    background-color: grey;
+    padding: 6px 10px;
+    border-radius: 6px;
+    opacity: 0.7;
+    margin-right: 10px;
+}
+
+.btn:hover {
+    opacity: 1;
+    transition: 0.1s
+}
+
+.btn-event-info {
+    background-color: rgb(249, 147, 4);
+}
+
+.progress-info-text {
+    color: rgb(220, 0, 220);
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.progress-info-par {
+    color: rgb(220, 0, 220);
+    font-size: 90px;
+    line-height: 110%;
+    font-weight: bold;
+}
+
+.tasks {
+    margin: 20px 0px;
+}
+
+.tasks h1 {
+    font-size: 20px;
+    float: left;
+    margin-right: 10px;
+}
+
+.tasks-table {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.tasks-table-head {
+    font-size: 12px;
+    line-height: 200%;
+
+    color: white;
+    background-color: dimgrey;
+}
+
+.tasks-table-body {
+    font-size: 14px;
+    line-height: 40px;
+    background-color: rgb(201, 201, 201);
+    border-top: 1px solid white;
+}
+
+.tasks-btn-show {
+    font-size: 13px;
+    background-color: blue;
+    margin-right: 0px;
+}
+
+.table-padding {
+    padding: 0px 10px;
+}
+
+footer {
+    background-color: darkgrey;
+    height: 50px;
+}

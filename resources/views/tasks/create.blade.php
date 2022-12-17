@@ -8,69 +8,95 @@
 
             @csrf
 
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
-                イベントを選択
-            </label>
-            <div>
-                @foreach ($events as $event)
-                    <label>
-                        <input type="radio" name="event_id" id='event'
-                            value="{{ $event->id }}"{{ old('event_id') == $event->id ? 'checked' : '' }}>{{ $event->event_name }}
-                    </label>
-                @endforeach
+            <div class="mb-4 mr-10 float-left">
+                <label class="block text-blue-700 text-sm font-bold mb-1" for="title">
+                    イベントを選択
+                </label>
+                <select class="text-sm rounded" name="event_id" id="event">
+                    <option value="" hidden>選択してください</option>
+                    @foreach ($events as $event)
+                        <option value="{{ $event->id }}" @if (old('event_id') == $event->id) selected @endif>
+                            {{ $event->event_name }}</option>
+                    @endforeach
+                </select>
             </div>
 
-            <br>
-
-            <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
-                教科を選択
-            </label>
-            <div>
-                @foreach ($subjects as $subject)
-                    <label>
-                        <input type="radio" name="subject_id" id='subject_te'
-                            value="{{ $subject->id }}"{{ old('subject_id') == $subject->id ? 'checked' : '' }}>{{ $subject->subject_text }}
-                    </label>
-                @endforeach
+            <div class="mb-4">
+                <label class="block text-blue-700 text-sm font-bold mb-1" for="title">
+                    教科を選択
+                </label>
+                <select class="text-sm rounded" name="subject_id" id="subject_te">
+                    <option value="" hidden>選択してください</option>
+                    @foreach ($subjects as $subject)
+                        <option value="{{ $subject->id }}" @if (old('subject_id') == $subject->id) selected @endif>
+                            {{ $subject->subject_text }}</option>
+                    @endforeach
+                </select>
             </div>
 
-            <div class="my-4 text-slate-500 text-lg leading-relaxed">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+            <div class="mb-4 leading-relaxed">
+                <label class="block text-blue-700 text-sm font-bold mb-1" for="title">
                     タイトルを入力
                 </label>
-                <input type="text" name="title" id="title" placeholder="{{ __('Event Name') }}" value=""
-                    required
-                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" name="title" id="title" placeholder="{{ __('Event Name') }}"
+                    value="{{ old('title') }}" required
+                    class="placeholder-gray-400 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
 
-            <div class="my-4 text-slate-500 text-lg leading-relaxed mb-2">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="body">
+            <div class="mb-4 leading-relaxed">
+                <label class="block text-blue-700 text-sm font-bold mb-1" for="body">
                     メモを入力
                 </label>
-                <textarea name="body" id="body"
-                    placeholder="メモ"class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline h-32"></textarea>
+                <textarea name="body" id="body" placeholder="メモ"
+                    class="placeholder-gray-400 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32">{{ old('body') }}</textarea>
             </div>
 
-            <div>
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="body">
+            {{-- <div class="mb-4 mr-10  w-[100px]">
+                <label class="block text-blue-700 text-sm font-bold mb-2" for="body">
                     ページ数を登録
                 </label>
-                <input type="text" name="total_page" id="total_page" placeholder="ページ数" value="">
-            </div>
+                <input type="text" name="total_page" id="total_page" placeholder="ページ数"
+                    value="{{ old('total_page') }}" class="placeholder-gray-400">
+            </div> --}}
 
-            <br>
-
-            <div>
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="body">
+            {{-- <div class="mb-4 mr-10">
+                <label class="block text-blue-700 text-sm font-bold mb-2" for="body">
                     1pあたりの所要時間を登録
                 </label>
-                <input type="text" name="page_time" id="page_time" placeholder="1pあたりの所要時間" value="">
+                <input type="text" name="page_time" id="page_time" placeholder="1pあたりの所要時間"
+                    value="{{ old('page_time') }}" class="placeholder-gray-400">
+            </div> --}}
+
+            <div class="mb-4 mr-10 float-left">
+                <label class="block text-blue-700 text-sm font-bold mb-1" for="title">
+                    ページ数を登録
+                </label>
+                <select class="text-sm rounded" name="total_page">
+                    <option value="" hidden>選択してください</option>
+                    <?php //PHPで動的に選択肢を追加
+                    for ($i = 1; $i <= 30; $i++) {
+                        echo '<option value = "' . $i . '">' . $i . ' ページ' . '</option>';
+                    }
+                    ?>
+                </select>
             </div>
 
-            <br>
+            <div class="mb-4">
+                <label class="block text-blue-700 text-sm font-bold mb-1" for="title">
+                    1pあたりの所要時間を登録
+                </label>
+                <select class="text-sm rounded" name="page_time">
+                    <option value="" hidden>選択してください</option>
+                    <?php //PHPで動的に選択肢を追加
+                    for ($j = 5; $j <= 120; $j = $j + 5) {
+                        echo '<option value = "' . $j . '">' . $j . ' 分' . '</option>';
+                    }
+                    ?>
+                </select>
+            </div>
 
             <input type="submit" value="登録"
-                class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                class="mt-2 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
         </form>
     </div>
 </x-app-layout>
