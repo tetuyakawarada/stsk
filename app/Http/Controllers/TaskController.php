@@ -94,7 +94,9 @@ class TaskController extends Controller
     public function edit(Task $task)
     {
         $subjects = Subject::all();
-        $events = Event::all();
+        // $events = Event::all();
+        $events = Auth::user()->events;
+
 
         return view('tasks.edit')->with(compact('task', 'subjects', 'events'));
     }
