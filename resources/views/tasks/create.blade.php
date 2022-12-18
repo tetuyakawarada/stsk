@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="shadow bg-white border rounded w-full max-w-md mx-auto mt-10">
+    <div class="shadow bg-white border rounded w-full max-w-md mx-auto mt-6">
         <h1 class="text-3xl text-center font-semibold p-6">課題の新規登録</h1>
 
         <x-validation-errors :errors="$errors" />
@@ -43,7 +43,7 @@
                     class="placeholder-gray-400 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
 
-            <div class="mb-4 leading-relaxed">
+            <div class="mb-3 leading-relaxed">
                 <label class="block text-blue-700 text-sm font-bold mb-1" for="body">
                     メモを入力
                 </label>

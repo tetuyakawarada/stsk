@@ -5,8 +5,7 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-
-                <div class="text-4xl mt-3 font-bold text-emerald-600">STSK!</div>
+                <a class="text-4xl mt-3 font-bold text-emerald-600" href="{{ route('tasks.index') }}">STSK!</a>
                 <div class="text-1xl mt-6 font-bold ml-3 text-gray-500">スタスク</div>
 
                 {{-- <div class="shrink-0 flex items-center">
