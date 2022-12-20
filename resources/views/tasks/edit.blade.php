@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="shadow bg-white border rounded w-full max-w-md mx-auto mt-6 pb-16">
-        <h1 class="text-3xl text-center font-semibold p-6">課題の編集</h1>
+        <h1 class="text-2xl text-center font-semibold bg-blue-100 mx-6 my-6 py-2 text-blue-700 rounded">課題の編集</h1>
 
         <x-validation-errors :errors="$errors" />
 
@@ -88,7 +88,7 @@
                 <select class="text-sm rounded" name="total_page">
                     <option value="{{ $task->total_page }}" hidden>{{ old('title', $task->total_page) }} ページ</option>
                     <?php //PHPで動的に選択肢を追加
-                    for ($i = 1; $i <= 30; $i++) {
+                    for ($i = 1; $i <= 50; $i++) {
                         echo '<option value = "' . $i . '">' . $i . ' ページ' . '</option>';
                     }
                     ?>
