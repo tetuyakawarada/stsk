@@ -119,11 +119,13 @@
         </div>
     </div>
 
+
+
     <div class="tasks">
         <div class="contener">
             <div>
                 <h1>課題一覧</h1>
-                <a class="btn" href="{{ route('tasks.create') }}">新規課題の登録</a>
+                <a class="btn btn-create" href="{{ route('tasks.create') }}">新規課題の登録</a>
             </div>
 
             <div>
@@ -137,7 +139,7 @@
                             <th class="table-padding">経過時間</th>
                             <th class="table-padding">進行度</th>
                             <th class="table-padding">進捗状況</th>
-                            <th></th>
+                            {{-- <th></th> --}}
                             <th></th>
                             <th></th>
                         </tr>
@@ -153,21 +155,21 @@
                                 <td width="100px" class="table-padding">{{ $task->degree_time }} %</td>
                                 <td width="100px" class="table-padding">{{ $task->state->state_text }}</td>
 
-                                <td width="80px">
+                                {{-- <td width="80px">
                                     <a href="{{ route('tasks.show', $task) }}" class="btn tasks-btn-show">
                                         {{ __('Details') }}
                                     </a>
-                                </td>
+                                </td> --}}
 
-                                <td width="80px">
+                                <td width="110px">
                                     <a href="{{ route('tasks.edit', $task) }}" class="btn tasks-btn-show">
-                                        {{ __('Edit') }}
+                                        課題を編集
                                     </a>
                                 </td>
 
-                                <td width="80px"><a href="/tasks/progress/{{ $task->id }}/edit"
+                                <td width="110px"><a href="/tasks/progress/{{ $task->id }}/edit"
                                         class="btn tasks-btn-show">
-                                        {{ __('進捗') }}
+                                        {{ __('進捗') }}を登録
                                     </a>
                                 </td>
                             </tr>
@@ -193,13 +195,10 @@
 
 
 
-    <div class="xxx"></div>
+    {{-- <div class="xxx"></div> --}}
 
 
-
-
-
-
+    {{--
 
     <div class="bg-gray-100">
         @livewire('navigation-menu')
@@ -208,13 +207,13 @@
         <main class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="flex my-5">
-                {{-- タイトル・イメージ --}}
+                タイトル・イメージ
                 <div
                     class="relative text-center float-light w-[600px] h-[220px] container border border-gray-400 bg-gray-200">
                     <img class="absolute w-[600px] h-[220px]" src="/images/img_stady.jpg">
                     <div class="absolute text-4xl mt-5 ml-5 text-white font-bold">{{ Auth::user()->name }} さん</div>
                 </div>
-                {{-- イベント情報 --}}
+                イベント情報
                 <div class="ml-4 ">
                     <div class="bg-amber-500 text-center text-white w-[300px] h-[36px] py-2 font-bold">イベント情報</div>
                     <div class="text-center float-light h-[184px] container border-2 border-amber-500 bg-amber-100">
@@ -239,7 +238,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- 進行状況 --}}
+                進行状況
                 <div class="ml-4 ">
                     <div class="bg-fuchsia-500 text-center text-white w-[300px] h-[36px] py-2 font-bold">進行状況</div>
 
@@ -258,7 +257,7 @@
                 </div>
             </div>
 
-            {{-- 課題 一覧 --}}
+            課題 一覧
             <div class="mt-0">
                 <div class="flex">
                     <h1 class="py-3 px-3 text-left text-lg">課題一覧</h1>
@@ -291,7 +290,7 @@
                                 <td class="py-2 px-6">{{ $task->title }}</td>
                                 <td class="py-2 px-6">{{ $task->total_time }} 分</td>
                                 <td class="py-2 px-6">{{ $task->progress_time }} 分</td>
-                                {{-- <td class="py-2 px-6">{{ intval($task->degree_time) }} %</td> --}}
+                                <td class="py-2 px-6">{{ intval($task->degree_time) }} %</td>
                                 <td class="py-2 px-6">{{ $task->degree_time }} %</td>
                                 <td class="py-2 px-6">{{ $task->state->state_text }}</td>
                                 <td class="py-2 px-6">
@@ -317,6 +316,8 @@
             </div>
         </main>
     </div>
+--}}
+
 
     @stack('modals')
 
