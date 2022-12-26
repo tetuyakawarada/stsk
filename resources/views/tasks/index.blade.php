@@ -21,12 +21,12 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 
+
+
 </head>
 
 <body class="font-sans antialiased">
     <x-jet-banner />
-
-
 
     <header>
         <div class="contener">
@@ -94,8 +94,7 @@
 
 
     <div class="top">
-        <div class="contener">
-            <div class="user-info">{{ Auth::user()->name }} <span>さん</span></div>
+        <div class="contener top-contener">
 
             <div class="top-info event-info">
                 <div class="top-info-title event-info-title">イベント情報</div>
@@ -116,9 +115,14 @@
                     <div class="progress-info-par">{{ intval($total_progress_degree) }}%</div>
                 </div>
             </div>
-        </div>
-    </div>
 
+            <div class="user-info">{{ Auth::user()->name }} <span>さん</span></div>
+
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
 
 
     <div class="tasks">
@@ -186,9 +190,49 @@
 
 
 
+    <div class="contener">
 
+        @foreach ($tasks as $task)
+            <?php
+            $states_class = '';
+            $subject_class = '';
+            
+            switch ($task->state_id) {
+                case '1':
+                    $states_class = 'state_1';
+                    break;
+                case '2':
+                    $states_class = 'state_2';
+                    break;
+                case '3':
+                    $states_class = 'state_3';
+                    break;
+            }
+            switch ($task->subject_id) {
+                case '1':
+                    $subject_class = 'subject_math';
+                    break;
+                case '2':
+                    $subject_class = 'subject_japa';
+                    break;
+                case '3':
+                    $subject_class = 'subject_sice';
+                    break;
+            }
+            ?>
 
+            <div class="task_contener">
+                <div class="task_item {!! $states_class !!}">
+                    <div class="subject {!! $subject_class !!}">{{ $task->subject->subject_text }}</div>
+                    <div class="">{{ $task->title }}</div>
+                    <div class="">{{ $task->total_time }}</div>
+                    <div class="">{{ $task->progress_time }}</div>
+                    <div class="">{{ $task->state->state_text }}</div>
+                </div>
+            </div>
+        @endforeach
 
+    </div>
 
 
 

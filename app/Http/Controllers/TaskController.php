@@ -21,23 +21,26 @@ class TaskController extends Controller
      */
     public function index()
     {
+        $event = Auth::user()->events->last();
         $tasks = Auth::user()->tasks;
 
         $total_time = 0;
         $progress_time = 0;
-
 
         foreach ($tasks as $task) {
             $total_time += $task->total_page * $task->page_time / 60;
             $progress_time += $task->finish_page * $task->page_time / 60;
         }
 
-        $total_progress_degree = $progress_time * 100 / $total_time;
+        if ($total_time == 0) {
+            $total_progress_degree = 0;
+        } else {
+            $total_progress_degree = $progress_time * 100 / $total_time;
+        }
 
-        $event = Auth::user()->events->last();
-
-        return view('tasks.index')->with(compact('tasks', 'event', 'total_time', 'progress_time', 'total_progress_degree'));
+        return view('tasks.index')->with(compact('tasks', 'event', 'total_time', 'progress_time', 'total_progress_degree',));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -47,9 +50,7 @@ class TaskController extends Controller
     public function create()
     {
         $subjects = Subject::all();
-        // $events = Event::all();
         $events = Auth::user()->events;
-
 
         return view('tasks.create')->with(compact('subjects', 'events'));
     }
@@ -94,9 +95,7 @@ class TaskController extends Controller
     public function edit(Task $task)
     {
         $subjects = Subject::all();
-        // $events = Event::all();
         $events = Auth::user()->events;
-
 
         return view('tasks.edit')->with(compact('task', 'subjects', 'events'));
     }
@@ -135,13 +134,11 @@ class TaskController extends Controller
     }
 
 
-
     public function progress_edit(Task $task)
     {
         $subjects = Subject::all();
         $events = Event::all();
         $states = State::all();
-
 
         return view('tasks.progress_edit')->with(compact('task', 'subjects', 'events', 'states'));
     }
