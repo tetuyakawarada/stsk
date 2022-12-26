@@ -20,8 +20,19 @@ div {
     margin: 50px 0;
 }
 
+.clear {
+    clear: right;
+    clear: left;
+
+}
+
+
 .contener {
-    margin: 0 20px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+
 }
 
 header {
@@ -71,15 +82,36 @@ header {
 
 
 .top {
-    height: 300px;
+    /* height: 300px; */
     background-image: url(/images/img_stady.jpg);
     background-size: cover;
     /* opacity: 0.5; */
     position: relative;
-
+    padding: 70px 0px 20px 0px;
 }
 
+
+.top-contener {
+    display: flex;
+    align-items: flex-end;
+}
+
+
 .user-info {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+
+    padding: 0.25em 0.75em;
+
+    margin-left: auto;
+    flex-shrink: 0.2;
+}
+
+/* .user-info {
     position: absolute;
     bottom: 30px;
     right: 30px;
@@ -89,19 +121,22 @@ header {
     padding: 0px 20px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-}
+} */
+
 
 .user-info span {
     font-size: 20px;
 }
 
 .top-info {
-    /* margin-top: 70px; */
+    margin-top: 20px;
     margin-right: 20px;
     float: left;
     width: 300px;
     height: 180px;
     text-align: center;
+    flex-shrink: 0.1;
+
 }
 
 .top-info-title {
@@ -119,9 +154,9 @@ header {
 
 .event-info {
     background-color: rgba(255, 228, 196, 0.7);
-    position: absolute;
+    /* position: absolute;
     top: 100px;
-    left: 20px;
+    left: 20px; */
     border: 2px solid rgba(236, 169, 13, 0.7);
 }
 
@@ -131,9 +166,9 @@ header {
 
 .progress-info {
     background-color: rgba(232, 164, 236, 0.7);
-    position: absolute;
+    /* position: absolute;
     top: 100px;
-    left: 340px;
+    left: 340px; */
     border: 2px solid rgba(221, 74, 216, 0.7);
 }
 
@@ -235,4 +270,66 @@ footer {
     background-color: rgba(4, 103, 105, 0.8);
 
     height: 5px;
+}
+
+
+
+
+
+.task_contener {
+    float: left;
+    margin: 20px 0px;
+}
+
+.task_item {
+    width: 200px;
+    padding: 15px 10px;
+    background-color: darkgray;
+    margin-right: 10px;
+    text-align: center;
+    border-radius: 6px;
+
+
+}
+
+.state_1 {
+    background-color: darkcyan;
+}
+
+.state_2 {
+    background-color: rgb(125, 144, 22);
+}
+
+
+.state_3 {
+    background-color: darkgrey;
+}
+
+
+.subject {
+    background-color: black;
+    color: white;
+    padding: 0.2em 1em;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    /* width: 100px; */
+    /* padding: 10px 10px; */
+
+    display: inline-block;
+
+
+
+
+}
+
+.subject_math {
+    background-color: rgb(54, 82, 240);
+}
+
+.subject_japa {
+    background-color: rgb(240, 54, 54);
+}
+
+.subject_sice {
+    background-color: chartreuse;
 }
